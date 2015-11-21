@@ -6,24 +6,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">MockForum</a></h1>
-      </li>
-    </ul>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+  <nav class="top-bar">
+    <div class="inner-top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">MockForum</a></h1>
+        </li>
       </ul>
-    </section>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <%- if current_user -%>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%- else -%>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%- end -%>
+        </ul>
+      </section>
+    </div>
   </nav>
 
   <%- flash.each do |key, value| -%>
